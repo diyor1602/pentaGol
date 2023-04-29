@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Manrope', sans-serif;
+}
+
+.changeTheme {
+  background-color: #333;
+}
+
+/* Navbar */
+
+.navbar {
+  background-color: #469264;
+}
+
+.container {
+  align-items: center;
+  width: 89.5%;
+  margin: auto;
+}
+
+.navbar .container {
+  align-items: center;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  height: 88px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo .pentaGol {
+  background-color: #469264;
+  z-index: 1;
+}
+
+.logo .logoimg {
+  width: 45px;
+  height: 44px;
+  transform: rotate(5deg);
+  margin-left: -20px;
+  margin-top: 5px;
+}
+
+.themebtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+/* Matchday */
+
+#leagues {
+  margin-top: 40px;
+}
+
+#previousMatchday .leagueNames, #nextMatchday .leagueNames {
+  display: flex;
+  background-color: #DAE9E0;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.league {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  padding: 8px;
+}
+
+.active {
+  background-color: #469264;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.league:hover {
+  cursor: pointer;
+}
+
+.active .leagueName {
+  color: #fff;
+}
+
+.leagueLogo {
+  width: 30px;
+  height: 30px;
+}
+
+.leagueName {
+  font-weight: 600;
+  color: #777777; 
+  margin-left: 13px;
+}
+
+/* Matchday tables */
+
+.tablerow1, .tablerow2 {
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gameTeams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #F4F5F7;
+  margin: 10px 0;
+  margin-bottom: 0;
+  border-radius: 10px 10px 10px 0;
+  padding: 10px;
+}
+
+.teamn1, .teamn2{
+  display: flex;
+  align-items: center;
+}
+
+.teamn1 img, .teamn2 img {
+  width: 25px;
+  height: 25px;
+  margin: 0 4px;
+}
+
+.firstTeamName {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0 15px 0 6px;
+}
+
+.secondTeamName {
+  margin: 0 6px 0 15px;
+}
+
+
+.gameTeams span {
+  font-weight: 800;
+  margin-right: 3px;
+}
+
+.gameDate {
+  background-color: #fff;
+  border: 1px solid #F4F5F7;
+  width: 120px;
+  border-radius: 0 0 10px 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.monthdayDate {
+  margin-right: 2px;
+  font-weight: lighter;
+}
+
+.hourDate {
+  font-weight: bold;
+}
+
+/* Main Content */
+
+#mainContent {
+  margin-top: 60px;
+  display: flex;
+}
+
+.newsContent {
+  width: 74%;
+}
+
+.tableContent {
+  width: 30%;
+}
+
+.newsItem {
+  position: relative;
+}
+
+.newsItem img {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.newsTitle {
+  width: 700;
+  font-size: 36px;
+  line-height: 50px;
+  color: #fff;
+  padding-top: 18%;
+  padding-left: 3%;
+}
+ 
+
+.newsDate {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
+  color: #fff;
+  padding-left: 3%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
