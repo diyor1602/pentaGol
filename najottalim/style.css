@@ -1,22 +1,44 @@
+
+
+:root {
+  --color-green: #469264;
+  --color-white: #fff;
+  --color-gray: #333;
+  --color-whate: #DAE9E0;
+  --color-lightwhite: #F4F5F7;
+  --color-darkwhite: #EAEAEA;
+  --color-lightgray: #777;
+  --color-black: #000;
+  --color-darkbrown: #898989;
+  --color-lightbrown: #4A4B4C;
+  --leage-bgcolor: #DAE9E0;
+}
+
+.darktheme {
+  --body-bgcolor: #16171B;
+  --leage-bgcolor: #3F534C;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--body-bgcolor);
   font-family: 'Manrope', sans-serif;
 }
 
-.changeTheme {
-  background-color: #333;
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* Navbar */
 
 .navbar {
-  background-color: #469264;
+  background-color: var(--color-green);
 }
 
 .container {
@@ -39,7 +61,7 @@ body {
 }
 
 .logo .pentaGol {
-  background-color: #469264;
+  background-color: var(--color-green);
   z-index: 1;
 }
 
@@ -58,7 +80,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 /* Matchday */
@@ -69,7 +91,7 @@ body {
 
 #previousMatchday .leagueNames, #nextMatchday .leagueNames {
   display: flex;
-  background-color: #DAE9E0;
+  background-color: var(--leage-bgcolor);
   border-radius: 10px;
   margin: 20px 0;
 }
@@ -82,7 +104,7 @@ body {
 }
 
 .active {
-  background-color: #469264;
+  background-color: var(--color-green);
   border-radius: 10px;
   padding: 8px;
 }
@@ -92,7 +114,7 @@ body {
 }
 
 .active .leagueName {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .leagueLogo {
@@ -102,7 +124,7 @@ body {
 
 .leagueName {
   font-weight: 600;
-  color: #777777; 
+  color: var(--color-lightgray); 
   margin-left: 13px;
 }
 
@@ -121,7 +143,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #F4F5F7;
+  background-color: var(--color-lightwhite);
   margin: 10px 0;
   margin-bottom: 0;
   border-radius: 10px 10px 10px 0;
@@ -156,13 +178,13 @@ body {
 }
 
 .gameDate {
-  background-color: #fff;
-  border: 1px solid #F4F5F7;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-lightwhite);
   width: 120px;
   border-radius: 0 0 10px 10px;
   font-size: 12px;
   text-align: center;
-  color: #333;
+  color: var(--color-gray);
 }
 
 .monthdayDate {
@@ -181,6 +203,11 @@ body {
   display: flex;
 }
 
+.tableFlexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
 .newsContent {
   width: 74%;
 }
@@ -191,6 +218,7 @@ body {
 
 .newsItem {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .newsItem img {
@@ -200,22 +228,304 @@ body {
 }
 
 .newsTitle {
-  width: 700;
+  width: 70%;
   font-size: 36px;
   line-height: 50px;
-  color: #fff;
+  color: var(--color-white);
   padding-top: 18%;
   padding-left: 3%;
 }
- 
 
 .newsDate {
   font-family: sans-serif;
-  font-weight: 500;
   font-size: 22px;
-  line-height: 30px;
-  color: #fff;
+  color: var(--color-white);
   padding-left: 3%;
   padding-top: 2%;
   padding-bottom: 2%;
+}
+
+.news2rowGrid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.newsItem2 {
+  width: 350px;
+  height: 280px;
+  position: relative;
+}
+
+.newsItem2 img {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.newsTitle2 {
+  color: var(--color-white);
+  width: 75%;
+  padding-top: 45%;
+  font-weight: 600;
+  font-size: 17px;
+  padding-bottom: 4px;
+  padding-left: 20px;
+}
+
+.newsDate2 {
+  color: var(--color-white);
+  font-size: 13px;
+  padding-left: 20px;
+}
+
+/* Table Content */
+
+.tableContent {
+  background: var(--color-lightwhite);
+  border-radius: 10px;
+  margin-left: 20px;
+  padding: 20px;
+  height: 970px;
+}
+
+.fixedScrollTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableScrollDiv {
+  height: 780px;
+  overflow: scroll;
+}
+
+.tableScrollDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.tableTitleText {
+  color: var(--color-black);
+  line-height: 33px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+select {
+  width: 100%;
+  height: 48px;
+  border-radius: 6px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  padding: 2px;
+}
+
+select option {
+  margin-top: 5px;
+}
+
+/* table */
+#LeageTablesStanding {
+  border-collapse: collapse;
+  width: 100%;
+  height: 600px !important;
+  overflow: scroll;
+}
+
+th {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-gray);
+  text-align: left;
+  padding: 13px 0;
+}
+
+tr td {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  padding: 13px 0;
+}
+
+tr td img {
+  width: 30px;
+  align-items: center;
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-white);
+}
+
+tr:nth-child(even) td:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+tr:nth-child(even) td:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.tableNumber, tr th:first-child {
+  padding-left: 10px;
+}
+
+.tableTeamName {
+  display: flex;
+  align-items: center;
+}
+
+.tableTeamName img {
+  margin-right: 15px;
+}
+
+
+/* So'ngi yangiliklar */
+
+.latestNewsTitle, .allNewsTitle {
+  background-color: var(--color-green);
+  border-radius: 10px;
+  width: 100%;
+  text-align: left;
+  color: var(--color-white);
+  padding: 21px 30px;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom: 40px;
+}
+
+.latestNewsGrid, .allNewsGrid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 12px;
+  row-gap: 27px;
+}
+.newsGridItem {
+  background: var(--color-lightwhite);
+  border-radius: 10px;
+  width: 370px;
+  height: 370px;
+  padding: 10px 15px;
+}
+
+.newsGridItem img {
+  width: 340px;
+  height: 211px;
+  border-radius: 10px;
+}
+
+.newsGridTitle {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--color-black);
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.newsGridAddition {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--color-lightbrown);
+}
+
+.newsGridDate {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-darkbrown);
+  margin-top: 16px;
+}
+
+.loadMoreBtn {
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  padding: 23px;
+  width: 100%;
+  text-align: center;
+  background: var(--color-darkwhite);
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+
+/* footer */
+
+footer {
+  background-color: var(--color-green);
+  padding: 40px 0;
+}
+
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerMenus {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.footerMenus .logo {
+  align-items: start;
+}
+
+.footerMenus .logo img {
+  margin-top: -10px;
+}
+
+.footerMenuUl {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footerMenuUl a {
+  text-decoration: none;
+  color: var(--color-white);
+  margin-bottom: 25px;
+}
+
+.iconsRow {
+  text-align: right;
+  margin: 15px 0;
+}
+
+.iconsRow img {
+  width: 50px;
+  height: 50px;
+  margin: 0 15px;
+}
+
+footer p {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  text-align: center;
+  color: var(--color-white);
+  margin-top: 40px;
+}
+
+.loader {
+  background: #fff url(./img/loader.gif) no-repeat center center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
 }
