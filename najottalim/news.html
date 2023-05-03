@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./news.css" />
+  </head>
+
+  <body>
+    <div class="loader"></div>
+
+    <div class="navbar">
+      <div class="container">
+        <div class="logo">
+          <svg
+            class="pentaGol"
+            width="110"
+            height="18"
+            viewBox="0 0 110 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.84 6.336C12.84 7.312 12.616 8.208 12.168 9.024C11.72 9.824 11.032 10.472 10.104 10.968C9.176 11.464 8.024 11.712 6.648 11.712H4.104V17.76H0V0.912H6.648C7.992 0.912 9.128 1.144 10.056 1.608C10.984 2.072 11.68 2.712 12.144 3.528C12.608 4.344 12.84 5.28 12.84 6.336ZM6.336 8.448C7.12 8.448 7.704 8.264 8.088 7.896C8.472 7.528 8.664 7.008 8.664 6.336C8.664 5.664 8.472 5.144 8.088 4.776C7.704 4.408 7.12 4.224 6.336 4.224H4.104V8.448H6.336Z"
+              fill="white"
+            />
+            <path
+              d="M27.6006 10.848C27.6006 11.232 27.5766 11.632 27.5286 12.048H18.2406C18.3046 12.88 18.5686 13.52 19.0326 13.968C19.5126 14.4 20.0966 14.616 20.7846 14.616C21.8086 14.616 22.5206 14.184 22.9206 13.32H27.2886C27.0646 14.2 26.6566 14.992 26.0646 15.696C25.4886 16.4 24.7606 16.952 23.8806 17.352C23.0006 17.752 22.0166 17.952 20.9286 17.952C19.6166 17.952 18.4486 17.672 17.4246 17.112C16.4006 16.552 15.6006 15.752 15.0246 14.712C14.4486 13.672 14.1606 12.456 14.1606 11.064C14.1606 9.672 14.4406 8.456 15.0006 7.416C15.5766 6.376 16.3766 5.576 17.4006 5.016C18.4246 4.456 19.6006 4.176 20.9286 4.176C22.2246 4.176 23.3766 4.448 24.3846 4.992C25.3926 5.536 26.1766 6.312 26.7366 7.32C27.3126 8.328 27.6006 9.504 27.6006 10.848ZM23.4006 9.768C23.4006 9.064 23.1606 8.504 22.6806 8.088C22.2006 7.672 21.6006 7.464 20.8806 7.464C20.1926 7.464 19.6086 7.664 19.1286 8.064C18.6646 8.464 18.3766 9.032 18.2646 9.768H23.4006Z"
+              fill="white"
+            />
+            <path
+              d="M37.9256 4.224C39.4936 4.224 40.7416 4.736 41.6696 5.76C42.6136 6.768 43.0856 8.16 43.0856 9.936V17.76H39.0056V10.488C39.0056 9.592 38.7736 8.896 38.3096 8.4C37.8456 7.904 37.2216 7.656 36.4376 7.656C35.6536 7.656 35.0296 7.904 34.5656 8.4C34.1016 8.896 33.8696 9.592 33.8696 10.488V17.76H29.7656V4.368H33.8696V6.144C34.2856 5.552 34.8456 5.088 35.5496 4.752C36.2536 4.4 37.0456 4.224 37.9256 4.224Z"
+              fill="white"
+            />
+            <path
+              d="M53.4015 14.28V17.76H51.3135C49.8255 17.76 48.6655 17.4 47.8335 16.68C47.0015 15.944 46.5855 14.752 46.5855 13.104V7.776H44.9535V4.368H46.5855V1.104H50.6895V4.368H53.3775V7.776H50.6895V13.152C50.6895 13.552 50.7855 13.84 50.9775 14.016C51.1695 14.192 51.4895 14.28 51.9375 14.28H53.4015Z"
+              fill="white"
+            />
+            <path
+              d="M54.8715 11.04C54.8715 9.664 55.1275 8.456 55.6395 7.416C56.1675 6.376 56.8795 5.576 57.7755 5.016C58.6715 4.456 59.6715 4.176 60.7755 4.176C61.7195 4.176 62.5435 4.368 63.2475 4.752C63.9675 5.136 64.5195 5.64 64.9035 6.264V4.368H69.0075V17.76H64.9035V15.864C64.5035 16.488 63.9435 16.992 63.2235 17.376C62.5195 17.76 61.6955 17.952 60.7515 17.952C59.6635 17.952 58.6715 17.672 57.7755 17.112C56.8795 16.536 56.1675 15.728 55.6395 14.688C55.1275 13.632 54.8715 12.416 54.8715 11.04ZM64.9035 11.064C64.9035 10.04 64.6155 9.232 64.0395 8.64C63.4795 8.048 62.7915 7.752 61.9755 7.752C61.1595 7.752 60.4635 8.048 59.8875 8.64C59.3275 9.216 59.0475 10.016 59.0475 11.04C59.0475 12.064 59.3275 12.88 59.8875 13.488C60.4635 14.08 61.1595 14.376 61.9755 14.376C62.7915 14.376 63.4795 14.08 64.0395 13.488C64.6155 12.896 64.9035 12.088 64.9035 11.064Z"
+              fill="white"
+            />
+            <path
+              d="M83.1606 6.24C82.8566 5.68 82.4166 5.256 81.8406 4.968C81.2806 4.664 80.6166 4.512 79.8486 4.512C78.5206 4.512 77.4566 4.952 76.6566 5.832C75.8566 6.696 75.4566 7.856 75.4566 9.312C75.4566 10.864 75.8726 12.08 76.7046 12.96C77.5526 13.824 78.7126 14.256 80.1846 14.256C81.1926 14.256 82.0406 14 82.7286 13.488C83.4326 12.976 83.9446 12.24 84.2646 11.28H79.0566V8.256H87.9846V12.072C87.6806 13.096 87.1606 14.048 86.4246 14.928C85.7046 15.808 84.7846 16.52 83.6646 17.064C82.5446 17.608 81.2806 17.88 79.8726 17.88C78.2086 17.88 76.7206 17.52 75.4086 16.8C74.1126 16.064 73.0966 15.048 72.3606 13.752C71.6406 12.456 71.2806 10.976 71.2806 9.312C71.2806 7.648 71.6406 6.168 72.3606 4.872C73.0966 3.56 74.1126 2.544 75.4086 1.824C76.7046 1.088 78.1846 0.719999 79.8486 0.719999C81.8646 0.719999 83.5606 1.208 84.9366 2.184C86.3286 3.16 87.2486 4.512 87.6966 6.24H83.1606Z"
+              fill="white"
+            />
+            <path
+              d="M96.3538 17.952C95.0418 17.952 93.8578 17.672 92.8018 17.112C91.7618 16.552 90.9378 15.752 90.3298 14.712C89.7378 13.672 89.4418 12.456 89.4418 11.064C89.4418 9.688 89.7458 8.48 90.3538 7.44C90.9618 6.384 91.7938 5.576 92.8498 5.016C93.9058 4.456 95.0898 4.176 96.4018 4.176C97.7138 4.176 98.8978 4.456 99.9538 5.016C101.01 5.576 101.842 6.384 102.45 7.44C103.058 8.48 103.362 9.688 103.362 11.064C103.362 12.44 103.05 13.656 102.426 14.712C101.818 15.752 100.978 16.552 99.9058 17.112C98.8498 17.672 97.6658 17.952 96.3538 17.952ZM96.3538 14.4C97.1378 14.4 97.8018 14.112 98.3458 13.536C98.9058 12.96 99.1858 12.136 99.1858 11.064C99.1858 9.992 98.9138 9.168 98.3698 8.592C97.8418 8.016 97.1858 7.728 96.4018 7.728C95.6018 7.728 94.9378 8.016 94.4098 8.592C93.8818 9.152 93.6178 9.976 93.6178 11.064C93.6178 12.136 93.8738 12.96 94.3858 13.536C94.9138 14.112 95.5698 14.4 96.3538 14.4Z"
+              fill="white"
+            />
+            <path d="M109.643 0V17.76H105.539V0H109.643Z" fill="white" />
+          </svg>
+          <img class="logoimg" src="/img/logo.png" alt="" />
+        </div>
+        <div class="themebtn">
+          <i class="fa-solid fa-sun"></i>
+          <!-- <i class="fa-solid fa-moon"></i> -->
+        </div>
+      </div>
+    </div>
+
+    <section id="mainContent">
+      <div class="wrapper">
+        <div class="newsContentdate">2 soat oldin</div>
+        <div class="newsContentTitle">
+          Faqatgina muvaffaqiyatli qur'a Rossiyani Jahon chempionatiga olib
+          boradi: bo'g'inlar oldidagi barcha maketlar
+        </div>
+      </div>
+      <div class="container">
+        <div class="newsMainContent">
+          <img src="./img/newsBg.png" alt="" />
+          <div class="newsContentAddText">
+            Ilon Mask (Elon Mask, Tesla va boshqa loyihalar rahbari) bir yarim hafta ichida ikkinchi marta Xitoyning hukmron doiralari va fuqarolariga murojaat qildi. Videoda u ularni ushbu mamlakatda biznesni rivojlantirish va kengaytirishga sarmoya kiritishga tayyor ekanligiga ishontirdi. Qayta ishlangan ma'lumotlarning xavfsizligiga alohida e'tibor qaratiladi. <br> <br> Ular faqat Xitoyning o'zida saqlanadi va shuning uchun istalgan vaqtda O'rta Qirollik hukumati foydalanishi mumkin bo'ladi. <br> <br> Ilon Mask Xitoyda hafta oxirida bo‘lib o‘tgan Butunjahon internet konferensiyasining tomoshabinlariga videomurojaati chog‘ida yangi bayonotlar berdi. Kompaniya Cisco Systems (Chak Robbins), Intel (Pat Gelsinger) va Qualcomm (Kristiano Amon) rahbarlaridan tashkil topgan bo'lib, Xitoy Xalq Respublikasi biznesi manfaatlarini Alibaba va Xiaomi rahbarlari himoya qilishgan. <br> <br> Tadbirni Xitoy Xalq Respublikasi Davlat kengashi bosh vaziri o‘rinbosari Lyu Xe ochib berdi va Si Szinpinning Osmon imperiyasining shaffof raqamli iqtisodiyotni yaratish uchun barcha kuchlar bilan ishlash istagi haqidagi so‘zlarini keltirdi. <br> <br> Yaqin kelajakda Tesla nafaqat Shanxay filialida elektromobillar ishlab hiqarishni kengaytiribgina qolmay, balki mahalliy studiya yordamida elektromobilning arzon modelini (narxi 25 000 dollardan kam) ishlab chiqmoqchi. <br> <br> Xitoy Xalq Respublikasida yig‘ilgan Tesla Model Y va Model 3 elektromobillari allaqachon Yevropaga eksport qilinmoqda. <br> <br>
+          </div>
+        </div>
+        <div class="newsAddContent">
+          <div class="newsTable">
+            <div class="newsAddTitle">Asosiy</div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            
+          </div>
+          <div class="newsTable">
+            <div class="newsAddTitle">Asosiy</div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            <div class="newsAddItemHref">
+              <a href="#">
+                <div class="newsAddHref">
+                  <div class="newsAddItemMainText">
+                    Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
+                    topildi
+                  </div>
+                  <div class="newsAddItemDate">12.05.2021 12:54</div>
+                </div>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="allNews">
+      <div class="container">
+        <div class="allNewsTitle">Barcha yangiliklar</div>
+        <div class="allNewsGrid">
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="newsGridItem">
+              <img src="./img/newsBenzema.png" alt="" />
+              <div class="newsGridTitle">
+                Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridAddition">
+                Zidan "Manchester Yunayted" ga Premer-ligaga tayyor emasligini
+                aytdi
+              </div>
+              <div class="newsGridDate">12.05.2021 12:54</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footerTop">
+          <div class="footerMenus">
+            <div class="logo">
+              <svg
+                class="pentaGol"
+                width="110"
+                height="18"
+                viewBox="0 0 110 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.84 6.336C12.84 7.312 12.616 8.208 12.168 9.024C11.72 9.824 11.032 10.472 10.104 10.968C9.176 11.464 8.024 11.712 6.648 11.712H4.104V17.76H0V0.912H6.648C7.992 0.912 9.128 1.144 10.056 1.608C10.984 2.072 11.68 2.712 12.144 3.528C12.608 4.344 12.84 5.28 12.84 6.336ZM6.336 8.448C7.12 8.448 7.704 8.264 8.088 7.896C8.472 7.528 8.664 7.008 8.664 6.336C8.664 5.664 8.472 5.144 8.088 4.776C7.704 4.408 7.12 4.224 6.336 4.224H4.104V8.448H6.336Z"
+                  fill="white"
+                />
+                <path
+                  d="M27.6006 10.848C27.6006 11.232 27.5766 11.632 27.5286 12.048H18.2406C18.3046 12.88 18.5686 13.52 19.0326 13.968C19.5126 14.4 20.0966 14.616 20.7846 14.616C21.8086 14.616 22.5206 14.184 22.9206 13.32H27.2886C27.0646 14.2 26.6566 14.992 26.0646 15.696C25.4886 16.4 24.7606 16.952 23.8806 17.352C23.0006 17.752 22.0166 17.952 20.9286 17.952C19.6166 17.952 18.4486 17.672 17.4246 17.112C16.4006 16.552 15.6006 15.752 15.0246 14.712C14.4486 13.672 14.1606 12.456 14.1606 11.064C14.1606 9.672 14.4406 8.456 15.0006 7.416C15.5766 6.376 16.3766 5.576 17.4006 5.016C18.4246 4.456 19.6006 4.176 20.9286 4.176C22.2246 4.176 23.3766 4.448 24.3846 4.992C25.3926 5.536 26.1766 6.312 26.7366 7.32C27.3126 8.328 27.6006 9.504 27.6006 10.848ZM23.4006 9.768C23.4006 9.064 23.1606 8.504 22.6806 8.088C22.2006 7.672 21.6006 7.464 20.8806 7.464C20.1926 7.464 19.6086 7.664 19.1286 8.064C18.6646 8.464 18.3766 9.032 18.2646 9.768H23.4006Z"
+                  fill="white"
+                />
+                <path
+                  d="M37.9256 4.224C39.4936 4.224 40.7416 4.736 41.6696 5.76C42.6136 6.768 43.0856 8.16 43.0856 9.936V17.76H39.0056V10.488C39.0056 9.592 38.7736 8.896 38.3096 8.4C37.8456 7.904 37.2216 7.656 36.4376 7.656C35.6536 7.656 35.0296 7.904 34.5656 8.4C34.1016 8.896 33.8696 9.592 33.8696 10.488V17.76H29.7656V4.368H33.8696V6.144C34.2856 5.552 34.8456 5.088 35.5496 4.752C36.2536 4.4 37.0456 4.224 37.9256 4.224Z"
+                  fill="white"
+                />
+                <path
+                  d="M53.4015 14.28V17.76H51.3135C49.8255 17.76 48.6655 17.4 47.8335 16.68C47.0015 15.944 46.5855 14.752 46.5855 13.104V7.776H44.9535V4.368H46.5855V1.104H50.6895V4.368H53.3775V7.776H50.6895V13.152C50.6895 13.552 50.7855 13.84 50.9775 14.016C51.1695 14.192 51.4895 14.28 51.9375 14.28H53.4015Z"
+                  fill="white"
+                />
+                <path
+                  d="M54.8715 11.04C54.8715 9.664 55.1275 8.456 55.6395 7.416C56.1675 6.376 56.8795 5.576 57.7755 5.016C58.6715 4.456 59.6715 4.176 60.7755 4.176C61.7195 4.176 62.5435 4.368 63.2475 4.752C63.9675 5.136 64.5195 5.64 64.9035 6.264V4.368H69.0075V17.76H64.9035V15.864C64.5035 16.488 63.9435 16.992 63.2235 17.376C62.5195 17.76 61.6955 17.952 60.7515 17.952C59.6635 17.952 58.6715 17.672 57.7755 17.112C56.8795 16.536 56.1675 15.728 55.6395 14.688C55.1275 13.632 54.8715 12.416 54.8715 11.04ZM64.9035 11.064C64.9035 10.04 64.6155 9.232 64.0395 8.64C63.4795 8.048 62.7915 7.752 61.9755 7.752C61.1595 7.752 60.4635 8.048 59.8875 8.64C59.3275 9.216 59.0475 10.016 59.0475 11.04C59.0475 12.064 59.3275 12.88 59.8875 13.488C60.4635 14.08 61.1595 14.376 61.9755 14.376C62.7915 14.376 63.4795 14.08 64.0395 13.488C64.6155 12.896 64.9035 12.088 64.9035 11.064Z"
+                  fill="white"
+                />
+                <path
+                  d="M83.1606 6.24C82.8566 5.68 82.4166 5.256 81.8406 4.968C81.2806 4.664 80.6166 4.512 79.8486 4.512C78.5206 4.512 77.4566 4.952 76.6566 5.832C75.8566 6.696 75.4566 7.856 75.4566 9.312C75.4566 10.864 75.8726 12.08 76.7046 12.96C77.5526 13.824 78.7126 14.256 80.1846 14.256C81.1926 14.256 82.0406 14 82.7286 13.488C83.4326 12.976 83.9446 12.24 84.2646 11.28H79.0566V8.256H87.9846V12.072C87.6806 13.096 87.1606 14.048 86.4246 14.928C85.7046 15.808 84.7846 16.52 83.6646 17.064C82.5446 17.608 81.2806 17.88 79.8726 17.88C78.2086 17.88 76.7206 17.52 75.4086 16.8C74.1126 16.064 73.0966 15.048 72.3606 13.752C71.6406 12.456 71.2806 10.976 71.2806 9.312C71.2806 7.648 71.6406 6.168 72.3606 4.872C73.0966 3.56 74.1126 2.544 75.4086 1.824C76.7046 1.088 78.1846 0.719999 79.8486 0.719999C81.8646 0.719999 83.5606 1.208 84.9366 2.184C86.3286 3.16 87.2486 4.512 87.6966 6.24H83.1606Z"
+                  fill="white"
+                />
+                <path
+                  d="M96.3538 17.952C95.0418 17.952 93.8578 17.672 92.8018 17.112C91.7618 16.552 90.9378 15.752 90.3298 14.712C89.7378 13.672 89.4418 12.456 89.4418 11.064C89.4418 9.688 89.7458 8.48 90.3538 7.44C90.9618 6.384 91.7938 5.576 92.8498 5.016C93.9058 4.456 95.0898 4.176 96.4018 4.176C97.7138 4.176 98.8978 4.456 99.9538 5.016C101.01 5.576 101.842 6.384 102.45 7.44C103.058 8.48 103.362 9.688 103.362 11.064C103.362 12.44 103.05 13.656 102.426 14.712C101.818 15.752 100.978 16.552 99.9058 17.112C98.8498 17.672 97.6658 17.952 96.3538 17.952ZM96.3538 14.4C97.1378 14.4 97.8018 14.112 98.3458 13.536C98.9058 12.96 99.1858 12.136 99.1858 11.064C99.1858 9.992 98.9138 9.168 98.3698 8.592C97.8418 8.016 97.1858 7.728 96.4018 7.728C95.6018 7.728 94.9378 8.016 94.4098 8.592C93.8818 9.152 93.6178 9.976 93.6178 11.064C93.6178 12.136 93.8738 12.96 94.3858 13.536C94.9138 14.112 95.5698 14.4 96.3538 14.4Z"
+                  fill="white"
+                />
+                <path d="M109.643 0V17.76H105.539V0H109.643Z" fill="white" />
+              </svg>
+              <img class="logoimg" src="/img/logo.png" alt="" />
+            </div>
+            <ul class="footerMenuUl">
+              <a href="#"><li>Main</li></a>
+              <a href="#"><li>Mach center</li></a>
+              <a href="#"><li>Football</li></a>
+              <a href=""><li>Tennis</li></a>
+              <a href="#"><li>Cybersport</li></a>
+            </ul>
+            <ul class="footerMenuUl">
+              <a href="#"><li>Main</li></a>
+              <a href="#"><li>Mach center</li></a>
+              <a href="#"><li>Football</li></a>
+              <a href=""><li>Tennis</li></a>
+              <a href="#"><li>Cybersport</li></a>
+            </ul>
+            <ul class="footerMenuUl">
+              <a href="#"><li>Main</li></a>
+              <a href="#"><li>Mach center</li></a>
+              <a href="#"><li>Football</li></a>
+              <a href=""><li>Tennis</li></a>
+              <a href="#"><li>Cybersport</li></a>
+            </ul>
+          </div>
+          <div class="footerIcons">
+            <div class="iconsRow">
+              <img src="./img/twitter.png" alt="" class="twitterBtn" />
+              <img src="./img/youtube.png" alt="" />
+              <img src="./img/vk.png" alt="" />
+            </div>
+            <div class="iconsRow">
+              <img src="./img/skype.png" alt="" />
+              <img src="./img/instagram.png" alt="" />
+              <img src="./img/facebook.png" alt="" />
+              <img src="./img/telegram.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <p>© 2023 Footboll. All rights reserved</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/c87511c75b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="news.js"></script>
+  </body>
+</html>
