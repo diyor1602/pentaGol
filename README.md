@@ -1,2 +1,2 @@
 # pentaGol
-Yaqin orada sayt deploy qilinadi va link ulashiladi
+https://diyor-pentagol.netlify.app/
